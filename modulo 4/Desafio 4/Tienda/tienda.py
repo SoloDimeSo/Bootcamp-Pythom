@@ -26,4 +26,34 @@ class Tienda:
             if producto.obtener_nombre() == nombre_producto:
                 if producto.obtener_stock() < cantidad:
                     cantidad = producto.obtener_stock
+                    return
+                
+                
+    class Restaurante(Tienda):
+        pass
+            
+            
+            
+    class Supermercado(Tienda):
+        def listar_productos(self):
+            lista_productos = ""
+            for producto in self.__producto:
+                stock_info = f"Pocos productos disponibles ({producto.obtener_stock()})" if producto.obtener_stock() < 10 else ""
+            lista_productos += f"Nombre: {producto.obtener_nombre()}, Precio: ${producto.obtener_precio()}, {stock_info}\n"
+            return lista_productos
+            
+            
+            
+    class Farmacia(Tienda):
+        def listar_productos(self):
+            lista_productos = ""
+            for producto in self.__producto:
+                envio_gratis = "Envío gratis al solicitar este producto" if producto.obtener_precio() > 15000 else ""
+                lista_productos += f"Nombre: {producto.obtener_nombre()}, Precio: ${producto.obtener_precio()}, {envio_gratis}\n"
+            return lista_productos
+                
+            
+        
+        
+        
     
